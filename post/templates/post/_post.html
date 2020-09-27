@@ -1,0 +1,18 @@
+<div class="card" style="width: 30rem;background-color:#bfdbcd;color:black;">
+  <img style='height:300px'
+        src="{% if post.image.first %}{{post.image.first.picture.url}}{% else %}/media/posts/no_image.jpg{% endif %}"
+        class="card-img-top" alt="Something went wrong">
+  <div class="card-body">
+    <h5 class="card-title">{{post.name}} by
+      <a href="{% url 'posts:user_post_list_url' username=post.user.username %}">
+        @{{post.user.username}} - {{post.date}}
+      </a>
+    </h5>
+    <p class="card-text">{{post.text|truncatewords:7}}</p>
+    <a href="{% url 'posts:post_detail_url' pk=post.pk %}" class="btn btn-primary"><i class="fas fa-book-open"></i></a>
+    {% if post.user == request.user %}
+      <a class="btn btn-danger" href="{% url 'posts:post_delete_url' pk=post.pk %}"><i class="fas fa-trash-alt"></i></a>
+      <a class="btn btn-success" href="{% url 'posts:post_update_url' pk=post.pk %}"><i class="fas fa-edit"></i></a>
+    {% endif %}
+  </div>
+</div>

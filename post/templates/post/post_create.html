@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+  <form enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+      {% bootstrap_form postform %}
+      {{ formset.management_form }}
+      {% for form in formset %}
+          {{ form }} <br>
+      {% endfor %}
+    {% if not postform.instance.pk %}
+      <input class='btn btn-primary' type="submit" name="" value="Create">
+    {% else %}
+      <input class='btn btn-warning' type="submit" name="" value="Update">
+    {% endif %}
+  </form>
+{% endblock %}

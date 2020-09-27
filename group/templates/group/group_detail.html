@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-5 group-detail">
+  <h1>{{object.name}}</h1>
+  <h3>About: {{object.description}}</h3>
+  {% if user not in object.user.all %}
+    <a class="btn btn-warning" href="{% url 'groups:group_enter_url' slug=object.slug pk=object.pk %}"><i class="fas fa-user-plus"></i>Join</a>
+  {% else %}
+    <a class="btn btn-warning" href="{% url 'groups:group_leave_url' slug=object.slug pk=object.pk %}"><i class="fas fa-user-minus"></i>Leave</a>
+  {% endif %}
+  {% if object.author == request.user.username %}
+    <a class='btn btn-success' href="{% url 'groups:group_update_url' slug=object.slug pk=object.pk %}"><i class="fas fa-edit"></i></a>
+    <a class="btn btn-danger" href="{% url 'groups:group_delete_url' slug=object.slug pk=object.pk %}"><i class="fas fa-trash-alt"></i></a>
+  {% endif %}
+</div>
+<div class="col-md-7 ml-auto">
+  {% for post in object.posts.all %}
+  <div class="mt-3">
+    {% include 'post/_post.html' %}
+  </div>
+  {% endfor %}
+  </div>
+  </div>
+{% endblock %}

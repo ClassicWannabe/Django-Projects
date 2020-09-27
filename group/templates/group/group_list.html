@@ -1,0 +1,28 @@
+{% extends 'group/group_base.html' %}
+
+{% block pregroup %}
+  <div class="col-md-4">
+    <h2>Welcome to group list</h2>
+    {% if user.is_authenticated %}
+      <h2><a href="{% url 'posts:user_post_list_url' username=request.user.username %}">@{{request.user.username}}</a></h2>
+      <a class='btn btn-warning' href="{% url 'groups:group_create_url' %}"><i class="fas fa-users"></i>Create a New Group</a>
+    {% endif %}
+  </div>
+{% endblock %}
+
+{% block group_content %}
+    <div class="col-md-8 mt-4">
+    <div class="card" style="width: 18rem;">
+      {% for group in groups %}
+      <a href="{% url 'groups:group_detail_url' slug=group.slug pk=group.pk %}">
+      <div style='background-color:#f5b042;color:white;' class="card-header">
+        <h2>{{group.name}}</h2>
+      </div>
+      <ul class="list-group list-group-flush mb-3">
+        <li class="list-group-item">Members: {{group.groupmember_set.count}} Posts: {{group.posts.count}}
+      </ul>
+      </a>
+    {% endfor %}
+    </div>
+  </div>
+{% endblock %}

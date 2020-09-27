@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>
+    Are you sure you want to delete the '{{object.name}}' by
+    <a href="{% url 'posts:user_post_list_url' username=object.user.username %}">@{{object.user.username}}</a>
+  </h1>
+  <form method="post">
+    {% csrf_token %}
+    <input class="btn btn-danger" type="submit" name="" value="Delete">
+    <a class="btn btn-primary" href="{{object.group.get_absolute_url}}">Cancel</a>
+  </form>
+{% endblock %}

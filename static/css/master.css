@@ -1,0 +1,41 @@
+.group-detail {
+  position: fixed;
+
+}
+.card {
+  border-radius: 10px;
+  border-width: medium;
+}
+body {
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+  background: black;
+  margin: 0;
+  color: white;
+}
+
+.carousel-title {
+  color:black;
+  text-align: center;
+  font-size: 3em;
+  margin-top: 0;
+}
+
+.carousel-text {
+  color: black;
+  font-family: Arial;
+  text-align: justify;
+  text-indent: 100px;
+}
+
+.carousel {
+  margin-top: 10px;
+}
+img {
+  border-radius: 5%;
+}
+.jumbotron {
+  margin-top: 10px;
+  border-radius: 5%;
+}
