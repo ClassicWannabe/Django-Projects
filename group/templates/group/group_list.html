@@ -15,7 +15,7 @@
     <div class="card" style="width: 18rem;">
       {% for group in groups %}
       <a href="{% url 'groups:group_detail_url' slug=group.slug pk=group.pk %}">
-      <div style='background-color:#f5b042;color:white;' class="card-header">
+      <div style='background-color:#f0a500;color:white;' class="card-header">
         <h2>{{group.name}}</h2>
       </div>
       <ul class="list-group list-group-flush mb-3">

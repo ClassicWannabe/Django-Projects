@@ -10,7 +10,7 @@
 <div class="carousel-inner">
   {% for img in post.image.all %}
   <div class="carousel-item {% if img.pk == post.image.first.pk %}active{% endif %}">
-    <img src="{% if img.picture %}{{img.picture.url}}{% else %}/media/posts/no_image.jpg{% endif %}" class="d-block w-100" alt="...">
+    <img style='height:400px;width:640px' src="{% if img.picture %}{{img.picture.url}}{% else %}/media/posts/no_image.jpg{% endif %}" class="d-block w-100" alt="...">
   </div>
   {% endfor %}
 </div>
