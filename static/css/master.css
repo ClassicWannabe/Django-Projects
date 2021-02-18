@@ -1,11 +1,3 @@
-.group-detail {
-  position: fixed;
-
-}
-.card {
-  border-radius: 10px;
-  border-width: medium;
-}
 body {
   height: 100%;
   width: 100%;
@@ -14,6 +6,25 @@ body {
   margin: 0;
   color: white;
 }
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;
+}
+
+.group-detail {
+  position: fixed;
+
+}
+.card {
+  border-radius: 10px;
+  border-width: medium;
+}
+
 
 .carousel-title {
   color:black;
